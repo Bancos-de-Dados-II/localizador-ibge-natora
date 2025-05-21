@@ -7,7 +7,7 @@ const config: Knex.Config = {
     port: 5432,
     user: "postgres",
     password: "postgres",
-    database: "teste-atv"
+    database: "postgres"
   },
 };
 
