@@ -18,7 +18,7 @@ app.get('/mapa/:estado/:municipio', async (request, reply) => {
     const estadoResult = await db.raw(
         `
     SELECT ST_AsSVG(geom) as svg_path
-    FROM br_uf_2024
+    FROM estados
     WHERE sigla_uf = ?
   `,
         [estado.toUpperCase()]
@@ -34,7 +34,7 @@ app.get('/mapa/:estado/:municipio', async (request, reply) => {
     const municipioResult = await db.raw(
         `
     SELECT ST_AsSVG(geom) as svg_path, nm_mun
-    FROM br_municipios_2024
+    FROM municipios
     WHERE nm_mun ILIKE ?
   `,
         [municipioPattern]
